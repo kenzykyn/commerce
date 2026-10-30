@@ -1,0 +1,241 @@
+
+/* ========================================
+   HOME SHOP BY BRAND
+======================================== */
+
+.home-brands {
+    position: relative;
+    z-index: 1;
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+    padding-block: 36px 48px;
+    color: #172554;
+}
+
+/* SECTION HEADING */
+.home-brands-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.home-brands-heading > div {
+    min-width: 0;
+}
+
+.home-brands-heading .home-eyebrow {
+    display: block;
+    margin-bottom: 8px;
+    color: #2563eb;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.home-brands-heading h2 {
+    margin: 0;
+    color: #172554;
+    font-size: clamp(22px, 2.5vw, 28px);
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    line-height: 1.25;
+}
+
+.home-brands-heading p {
+    margin: 8px 0 0;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* VIEW ALL BRANDS */
+.home-brands-view-all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    gap: 7px;
+    padding: 8px 0 8px 10px;
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.home-brands-view-all:hover {
+    color: #1d4ed8;
+}
+
+.home-brands-view-all:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* BRAND GRID */
+.home-brands-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 14px;
+    width: 100%;
+}
+
+/* BRAND CARD */
+.home-brand-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    overflow: hidden;
+    padding: 12px;
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    border-radius: 12px;
+    background: #ffffff;
+    text-decoration: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.home-brand-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(37, 99, 235, 0.4);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.08);
+}
+
+/* BRAND IMAGE / LOGO AREA */
+.home-brand-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1.8 / 1;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.home-brand-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+}
+
+.home-brand-card:hover .home-brand-image img {
+    transform: scale(1.06);
+}
+
+/* TEMPORARY BRAND TEXT */
+.home-brand-image span {
+    color: #334155;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+    .home-brands {
+        width: calc(100% - 32px);
+        padding-block: 30px 40px;
+    }
+
+    .home-brands-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .home-brand-card {
+        padding: 9px;
+        border-radius: 10px;
+    }
+
+    .home-brand-image span {
+        font-size: 12px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .home-brands {
+        width: calc(100% - 24px);
+        padding-block: 24px 34px;
+    }
+
+    .home-brands-heading {
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .home-brands-heading .home-eyebrow {
+        margin-bottom: 5px;
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .home-brands-heading h2 {
+        font-size: 19px;
+        letter-spacing: -0.5px;
+    }
+
+    .home-brands-heading p {
+        margin-top: 5px;
+        font-size: 11px;
+    }
+
+    .home-brands-view-all {
+        gap: 4px;
+        padding-left: 0;
+        font-size: 11px;
+    }
+
+    .home-brands-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .home-brand-card {
+        padding: 7px;
+        border-radius: 8px;
+    }
+
+    .home-brand-image {
+        aspect-ratio: 1.5 / 1;
+    }
+
+    .home-brand-image span {
+        font-size: clamp(9px, 2.8vw, 11px);
+        letter-spacing: 0;
+    }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 360px) {
+    .home-brands-grid {
+        gap: 6px;
+    }
+
+    .home-brand-card {
+        padding: 5px;
+    }
+
+    .home-brand-image span {
+        font-size: 9px;
+    }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    .home-brand-card,
+    .home-brand-image img,
+    .home-brands-view-all {
+        transition: none;
+    }
+}

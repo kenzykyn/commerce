@@ -1,0 +1,427 @@
+
+/* ========================================
+   HOME SLIDER SECTION
+======================================== */
+
+.home-slider-section {
+    position: relative;
+    width: min(1180px, calc(100% - 48px));
+    margin: 28px auto 48px;
+}
+
+/* SLIDER CONTAINER */
+
+.home-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    border-radius: 20px;
+    background: #eaf0fb;
+    isolation: isolate;
+}
+
+.home-slider-track {
+    position: relative;
+    width: 100%;
+}
+
+/* SLIDES */
+
+.home-slide {
+    position: relative;
+    display: none;
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 1180 / 400;
+    overflow: hidden;
+    background: #eaf0fb;
+}
+
+.home-slide.active {
+    display: block;
+    animation: home-slide-fade 0.55s ease;
+}
+
+.home-slide-image {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* IMAGE OVERLAY */
+
+.home-slide-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        90deg,
+        rgba(15, 35, 78, 0.84) 0%,
+        rgba(23, 55, 112, 0.65) 42%,
+        rgba(23, 55, 112, 0.12) 100%
+    );
+}
+
+/* SLIDE CONTENT */
+
+.home-slide-content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: min(620px, 72%);
+    padding: clamp(24px, 5vw, 64px);
+    color: #ffffff;
+}
+
+.home-slide-eyebrow {
+    margin-bottom: 16px;
+    color: #bfdbfe;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.5;
+}
+
+.home-slide-content h2 {
+    max-width: 600px;
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(30px, 4vw, 48px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.12;
+}
+
+.home-slide-content p {
+    max-width: 470px;
+    margin: 18px 0 24px;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+/* SLIDE BUTTON */
+
+.home-slide-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 46px;
+    padding: 0 20px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #1d4ed8;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.home-slide-button:hover {
+    transform: translateY(-2px);
+    background: #eff6ff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.home-slide-button:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 4px;
+}
+
+/* ========================================
+   PREVIOUS / NEXT ARROWS
+======================================== */
+
+.home-slider-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    transform: translateY(-50%);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    color: #1e3a8a;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.home-slider-arrow svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+}
+
+.home-slider-arrow:hover {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.home-slider-arrow:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+.home-slider-prev {
+    left: 18px;
+}
+
+.home-slider-next {
+    right: 18px;
+}
+
+/* ========================================
+   PILL INDICATORS
+   Located OUTSIDE the banner
+======================================== */
+
+.home-slider-indicators {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 18px;
+}
+
+.home-slider-indicator {
+    display: block;
+    flex: 0 0 22px;
+    width: 22px;
+    height: 5px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: #cbd5e1;
+    cursor: pointer;
+    transition:
+        flex-basis 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.home-slider-indicator:hover {
+    background: #93b4f8;
+}
+
+.home-slider-indicator.active {
+    flex-basis: 36px;
+    width: 36px;
+    background: #2563eb;
+}
+
+.home-slider-indicator:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 4px;
+}
+
+/* ========================================
+   ANIMATION
+======================================== */
+
+@keyframes home-slide-fade {
+    from {
+        opacity: 0.65;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+    .home-slider-section {
+        width: calc(100% - 32px);
+        margin-top: 24px;
+        margin-bottom: 40px;
+    }
+
+    .home-slider {
+        border-radius: 16px;
+    }
+
+    .home-slide {
+        aspect-ratio: 4 / 2;
+    }
+
+    .home-slide-content {
+        width: 78%;
+        padding: 32px;
+    }
+
+    .home-slide-content h2 {
+        font-size: clamp(27px, 4.2vw, 38px);
+        letter-spacing: -1px;
+    }
+
+    .home-slide-content p {
+        margin: 12px 0 18px;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .home-slide-eyebrow {
+        margin-bottom: 12px;
+        font-size: 10px;
+    }
+
+    .home-slider-arrow {
+        width: 38px;
+        height: 38px;
+    }
+
+    .home-slider-prev {
+        left: 12px;
+    }
+
+    .home-slider-next {
+        right: 12px;
+    }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+    .home-slider-section {
+        width: calc(100% - 24px);
+        margin-top: 16px;
+        margin-bottom: 32px;
+    }
+
+    .home-slider {
+        border-radius: 13px;
+    }
+
+    .home-slide {
+        aspect-ratio: 4 / 4.5;
+    }
+
+    .home-slide-image {
+        object-position: center;
+    }
+
+    .home-slide-overlay {
+        background: linear-gradient(
+            0deg,
+            rgba(15, 35, 78, 0.94) 0%,
+            rgba(23, 55, 112, 0.66) 56%,
+            rgba(23, 55, 112, 0.08) 100%
+        );
+    }
+
+    .home-slide-content {
+        justify-content: flex-end;
+        width: 100%;
+        padding: 24px 20px 28px;
+    }
+
+    .home-slide-eyebrow {
+        margin-bottom: 10px;
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .home-slide-content h2 {
+        max-width: 100%;
+        font-size: clamp(25px, 7vw, 34px);
+        letter-spacing: -0.8px;
+        line-height: 1.15;
+    }
+
+    .home-slide-content p {
+        margin: 12px 0 18px;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .home-slide-button {
+        min-height: 42px;
+        padding-inline: 16px;
+        font-size: 12px;
+    }
+
+    /* Arrows hidden on mobile */
+    .home-slider-arrow {
+        display: none;
+    }
+
+    /* Indicators remain below the banner */
+    .home-slider-indicators {
+        gap: 7px;
+        margin-top: 14px;
+    }
+
+    .home-slider-indicator {
+        flex-basis: 17px;
+        width: 17px;
+        height: 4px;
+    }
+
+    .home-slider-indicator.active {
+        flex-basis: 29px;
+        width: 29px;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 360px) {
+    .home-slide {
+        aspect-ratio: 4 / 5;
+    }
+
+    .home-slide-content {
+        padding: 20px 16px 24px;
+    }
+
+    .home-slide-content h2 {
+        font-size: 25px;
+    }
+
+    .home-slide-content p {
+        font-size: 12px;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    .home-slide.active {
+        animation: none;
+    }
+
+    .home-slider-arrow,
+    .home-slider-indicator,
+    .home-slide-button {
+        transition: none;
+    }
+}

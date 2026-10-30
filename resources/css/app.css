@@ -1,0 +1,15 @@
+@import './home.css';
+@import './navbar.css';
+@import './home-slider.css';
+@import './home-categories.css';
+@import './home-new-arrivals.css';
+@import './home-brands.css';
+@import './home-best-sellers.css';
+@import './home-special-offers.css';
+@import './home-bottom-nav.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global application styles */
